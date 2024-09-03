@@ -1,0 +1,298 @@
+*{
+     margin: 0;
+     padding: 0;
+     box-sizing: border-box;
+     font-family: 'Suse';
+}
+
+html, body{
+     height: 100%;
+     width: 100%;
+}
+
+#main{
+     width: 100%;
+     height: 100%;
+     background: #ededed;
+     display: grid;
+     grid-template-columns: 25% 25% 50%;
+     grid-template-rows: 26% 55% 19%;
+}  
+
+
+/* Top-left section */
+
+/*For the left-top-left we need to build a rhombus symbol*/
+
+#left-top-left{
+     padding: 40px;
+}
+
+#square{
+     height: 20px;
+     width: 20px;
+     background: black;
+     transform: rotate(45deg);
+}
+
+#left-top-right{
+     justify-self: right;
+     text-align: right;
+     padding: 30px;
+}
+
+#left-top-right h4{
+     font-size: 20px;
+     font-weight: 600;
+     margin-bottom: 40px;
+     color: #333;
+}
+
+#left-top-right h5{
+     font-size: 16px;
+     font-weight: 600;
+     color: #333;
+}
+
+#left-top-right h6{
+     display: none; /*This is the menu/sandwich icon that we will display only for mobile and tablet screens*/
+}
+
+/* Left center section */
+
+#left-center{
+     grid-column: 1 / 3; /*Take 2 columns from it's current position*/
+     background-color: unset;
+     border: unset;
+     position: relative; 
+     text-transform: uppercase;
+     padding: 40px;
+}
+
+#left-center h1{
+     font-size: 4.5vw;
+     font-weight: 500;
+}
+
+#left-center h1:nth-child(2n){
+     text-align: right;
+     position: relative;
+     right: 50%;
+     transform: translate(20%, 0);
+}
+
+
+#left-center h1:nth-of-type(3){
+     position: relative;
+}
+
+#left-center h1:nth-of-type(3)::after{
+     content: '';
+     display: block;
+     position: absolute;
+     left: 40%;
+     top: 50%;
+     height: 0;
+     width: 60px;
+     border: 4px solid black;
+     border-radius: 3px;
+     transform: rotate(0deg) translate(10%);
+}
+
+#left-center h1:nth-child(2n+1){
+     position: relative;
+     left: 50%;
+     transform: translate(-35%, 0);
+}
+
+/* Left-Bottom */
+
+#left-bottom{
+     grid-column: 1 / 3; /*Take 2 columns from it's current position*/
+     background-color: unset;
+     border: unset;
+     padding: 15px;
+}
+
+#left-bottom p{
+     width: 50%;
+     color: #3e3e3e;
+}
+
+/* Right section */
+
+#right{
+     grid-column: 3 / 5; /*Occupy columns [3,5)*/
+     grid-row: 1 / 4;  /*Occupy rows [1,4)*/
+     position: relative;
+     background: unset;
+     border: unset;
+     padding: 40px;
+     padding-right: 100px;
+     padding-left: 0px;
+}
+
+#right video{
+     width: 90%;
+     height: 100%;
+     object-fit: cover;
+     opacity: 0.9;
+     border-radius: 1.2rem;
+}
+
+#arrow{
+     position: absolute;
+     top: 50%;
+     width: 60px;
+     height: 60px;
+     background-color: crimson;
+     border-radius: 50%;
+     transform: translate(-50%,0);
+}
+
+#arrow i{
+     position: absolute;
+     color: #fff;
+     left: 50%;
+     top: 50%;
+     transform: translate(-50%, -50%);
+     font-size: 20px;
+}
+
+
+/* Adding Responsiveness */
+
+@media (max-width:700px){
+     html, body{
+          overflow-x: hidden; /*To make sure if there are some miscalculations and some element's blank space overflows our container that part shall be hidden so that there won't be any hidden surprises of container misalignment*/
+          min-height: 100%;
+          height: auto;
+     }
+     #main{
+          width: 100%;
+          height: 100%;
+          grid-template-columns: 50% 50%;
+          grid-template-rows: 60px; /*You fixed the first row's height, rest  of the rows will take as much height as they need*/
+     }
+
+     #left-top-left{
+          padding: 20px;
+     }
+     
+     #square{
+          height: 15px;
+          width: 15px;
+     }
+     
+     #left-top-right{
+          font-size: 20px;
+          font-weight: 500;
+          padding: 20px;
+     }
+     
+     #left-top-right h4{
+          display: none;
+     }
+     
+     #left-top-right h5{
+          display: none;
+     }
+
+     #left-top-right h6{
+          display: block;
+          font-size: 20px;
+          cursor: pointer;
+          align-self: flex-start;
+     }
+     
+     /* Left center section */
+     
+     #left-center{
+          padding: 20px;
+     }
+     
+     #left-center h1{
+          font-size: 12vw;
+          font-weight: 600;   
+     }
+     
+     #left-center h1:nth-child(2n){
+          text-align: right;
+          position: relative;
+          right: 30%;
+          transform: translate(20%, 0);
+     }
+
+     #left-center h1:nth-child(2n+1){
+          position: relative;
+          left: 30%;
+          transform: translate(-20%, 0);
+     }
+     
+     
+     #left-center h1:nth-of-type(3){
+          position: relative;
+     }
+
+     
+     #left-center h1:nth-of-type(3)::after{
+          content: '';
+          display: block;
+          position: absolute;
+          left: 40%;
+          top: 50%;
+          height: 0;
+          width: 60px;
+          border: 3.5px solid black;
+          transform: rotate(0deg) translate(100%);
+     }
+     
+     
+     /* Left-Bottom */
+     
+     #left-bottom{
+          padding: 15px;
+     }
+     
+     #left-bottom p{
+          width: 90%;
+          font-size: 15px;
+          color: #3e3e3e;
+     }
+
+     #right{
+          grid-column: 1 / 3; 
+          margin-top: 40px;
+          grid-row: 4;  
+          position: relative;
+          background: unset;
+          border: unset;
+          display: flex;
+          justify-content: center;
+          padding: 10px;
+     }
+
+     #right video{
+          width: 90%;
+          height: 100%;
+          object-fit: cover;
+          opacity: 0.9;
+          border-radius: 1.2rem;
+     }
+     
+     #arrow{
+          position: absolute;
+          top:0%;
+          left: 44%;
+          transform: translate(0,-50%) rotate(90deg);
+     }
+     
+     #arrow i{
+          position: absolute;
+          color: #fff;
+          left: 50%;
+          top: 50%;
+          transform: translate(-50%, -50%);
+          font-size: 20px;
+     }
+}
