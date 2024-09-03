@@ -90,10 +90,10 @@ html, body{
      content: '';
      display: block;
      position: absolute;
-     left: 40%;
+     left: 38%;
      top: 50%;
      height: 0;
-     width: 60px;
+     width: 75px;
      border: 4px solid black;
      border-radius: 3px;
      transform: rotate(0deg) translate(10%);
@@ -142,7 +142,7 @@ html, body{
 
 #arrow{
      position: absolute;
-     top: 50%;
+     top: 46%;
      width: 60px;
      height: 60px;
      background-color: crimson;
@@ -161,6 +161,15 @@ html, body{
 
 
 /* Adding Responsiveness */
+
+@media (max-width:1000px){
+     #left-center h1:nth-of-type(3)::after{
+          left: 42%;
+          top: 50%;
+          width: 50px;
+          border: 3.5px solid black;
+     }    
+}
 
 @media (max-width:700px){
      html, body{
@@ -295,4 +304,13 @@ html, body{
           transform: translate(-50%, -50%);
           font-size: 20px;
      }
+}
+
+@media (max-width:400px){
+     #left-center h1:nth-of-type(3)::after{
+          left: 35%;
+          top: 50%;
+          width: 50px;
+          border: 3.5px solid black;
+     }    
 }
